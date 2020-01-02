@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Users extends Component {
+class NewPlace extends Component {
     render() {
         return (
             <div>
-                <h2>user</h2>
+                <h2>New place</h2>
             </div>
         );
     }
 }
 
-export default Users;
+export default NewPlace;
