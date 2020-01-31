@@ -9,7 +9,14 @@ class UserList extends Component {
       return (
         <ul className="users-list">
           {this.props.items.map(item => (
-             <UserItem user={item} />
+             <UserItem
+              key={item.id}
+              name={item.name}
+              age={item.age}
+              url={item.url}
+              to={item.id}
+              alt={item.alt}
+             />
           ))}
         </ul>
       );

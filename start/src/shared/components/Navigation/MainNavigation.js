@@ -26,7 +26,7 @@ class MainNavigation extends Component {
       <React.Fragment>
         {this.state.drawerIsOpne && <Backdrop onClick={this.closeDrawer} />}
         {this.state.drawerIsOpne && (
-          <SideDrawer>
+          <SideDrawer show={this.state.drawerIsOpne} onClick={this.closeDrawer}>
             <nav className="main-navigation_drawer-nav">
               <NavLinks />
             </nav>
@@ -45,7 +45,7 @@ class MainNavigation extends Component {
           <h1 className="main-navigation__title">
             <Link to="/"> YourPlace </Link>
           </h1>
-          <nav className="main-navigation_drawer-nav">
+          <nav className="main-navigation_drawer-nav main-navigation_drawer-nav-inline">
             <NavLinks />
           </nav>
         </MainHeader>

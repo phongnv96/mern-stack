@@ -8,13 +8,13 @@ class UserItem extends Component {
     return (
       <li className="user-item">
         <Card className="user-item__content">
-          <Link to={`/${this.props.user.id}/places`}>
+          <Link to={`/${this.props.id}/places`}>
           <div className="user-item__image">
-            <Avatar image={this.props.user.url} alt={this.props.user.alt} />
+            <Avatar image={this.props.url} alt={this.props.alt} />
           </div>
           <div className="user-item__info">
-            <h2>{this.props.user.name}</h2>
-            <h3>{this.props.user.age}</h3>
+            <h2>{this.props.name}</h2>
+            <h3>{this.props.age}</h3>
           </div>
           </Link>
         </Card>

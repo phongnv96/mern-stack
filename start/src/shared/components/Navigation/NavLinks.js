@@ -18,7 +18,6 @@ class NavLinks extends Component {
                 <NavLink to="/auth" exact>AUTHEN</NavLink>
                 </li>
             </ul>
-           
         );
     }
 }

@@ -44,7 +44,7 @@ class Users extends Component {
       alt: "phongnv2"
     },
     {
-      id: 5,
+      id: 6,
       name: "Phong",
       url:
         "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",

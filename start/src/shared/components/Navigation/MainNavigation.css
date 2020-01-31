@@ -43,3 +43,9 @@
       display: block;
     }
   }
+
+  @media (max-width: 768px) {
+    .main-navigation_drawer-nav-inline {
+      display: none;
+    }
+  }
