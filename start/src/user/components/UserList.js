@@ -16,6 +16,7 @@ class UserList extends Component {
               url={item.url}
               to={item.id}
               alt={item.alt}
+              id={item.id}
              />
           ))}
         </ul>
