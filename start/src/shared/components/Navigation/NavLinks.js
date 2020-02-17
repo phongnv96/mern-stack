@@ -1,25 +1,42 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component, useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/auth-context";
 import "./NavLinks.css";
-class NavLinks extends Component {
-    render() {
-        return (
-            <ul className="nav-links">
-                <li>
-                <NavLink to="/" exact>ALL USERS</NavLink>
-                </li>
-                <li>
-                <NavLink to="/1/places" >MY PLACES</NavLink>
-                </li>
-                <li>
-                <NavLink to="/places/new" > ADD PLACE</NavLink>
-                </li>
-                <li>
-                <NavLink to="/auth" exact>AUTHEN</NavLink>
-                </li>
-            </ul>
-        );
-    }
-}
+const NavLinks = props => {
+  const auth = useContext(AuthContext);
+  return (
+    <ul className="nav-links">
+      <li>
+        <NavLink to="/" exact>
+          ALL USERS
+        </NavLink>
+      </li>
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/1/places">MY PLACES</NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/places/new"> ADD PLACE</NavLink>
+        </li>
+      )}
+      {!auth.isLoggedIn && (
+        <li>
+          <NavLink to="/auth" exact>
+            AUTHEN
+          </NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
+          <button onClick={auth.logout}>
+            LOGOUT
+          </button>
+        </li>
+      )}
+    </ul>
+  );
+};
 
 export default NavLinks;
