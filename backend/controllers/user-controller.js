@@ -1,5 +1,6 @@
 const HttpError = require("../models/http-error");
 const uuid = require("uuid");
+const { validationResult } = require("express-validator");
 const DUMMY_USER = [
   { id: 1, email: "phongnv1", password: "123456" },
   { id: 2, email: "phongnv3", password: "1234567" }
@@ -11,10 +12,14 @@ const getUserById = (req, res, next) => {
   if (!user) {
     throw new HttpError("User not found!", 400);
   }
-  res.json({ user: user });
+  res.status(200).json({ user: user });
 };
 
 const login = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    throw new HttpError('Invalid inputs passed, please check your data.', 422);
+  }
   const { email, password } = req.body;
   const user = DUMMY_USER.find(
     u => u.email === email && u.password === password
@@ -22,7 +27,7 @@ const login = (req, res, next) => {
   if (!user) {
     throw new HttpError("User not found!", 500);
   }
-  res.json({ message: "Login success!" });
+  res.status(200).json({ message: "Login success!" });
 };
 
 const signUp = (req, res, next) => {
@@ -38,7 +43,7 @@ const signUp = (req, res, next) => {
     };
     DUMMY_USER.push(newUser);
   }
-  res.json({ message: "Create account succes!" });
+  res.status(200).json({ message: "Create account succes!" });
 };
 
 exports.getUserById = getUserById;
