@@ -32,7 +32,7 @@ const login = (req, res, next) => {
 };
 
 const signUp = async (req, res, next) => {
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
   let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
@@ -53,7 +53,7 @@ const signUp = async (req, res, next) => {
     password: password,
     image:
       "https://i.pinimg.com/originals/37/09/a8/3709a868328da6e36e50666f1f08b904.jpg",
-    places
+    places: []
   });
   try {
     await newUser.save();
