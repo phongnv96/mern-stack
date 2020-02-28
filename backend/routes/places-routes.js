@@ -7,23 +7,19 @@ router.get("/:pid", placesControllers.getPlacesById);
 
 router.get("/user/:uid", placesControllers.getPlaceByUserId);
 
-router.post("/",
+router.post("/add",
     [
         check('title').not().isEmpty(),
         check('description').not().isEmpty(),
-        check('coordinates').not().isEmpty(),
         check('address').not().isEmpty(),
         check('creator').not().isEmpty()
     ]
     , placesControllers.createPlace);
 
-router.patch("/",
+router.patch("/update/:pid",
     [
         check('title').not().isEmpty(),
         check('description').not().isEmpty(),
-        check('coordinates').not().isEmpty(),
-        check('address').not().isEmpty(),
-        check('creator').not().isEmpty()
     ],
     placesControllers.updatePlace);
 

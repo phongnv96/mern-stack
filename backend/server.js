@@ -1,20 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const uuid = require("uuid/v4");
-const HttpError = require('./models/http-error');
+const HttpError = require("./models/http-error");
+const mongoose = require("mongoose");
 
 const placesRoutes = require("./routes/places-routes");
-const user = require("./routes/users-routes");
+const usersRoutes = require("./routes/users-routes");
 
 const app = express();
 
 app.use(bodyParser.json());
 
 app.use("/api/places", placesRoutes);
-app.use("/api/user", user);
+app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
-  const error = new HttpError('Could not find this route', 404);
+  const error = new HttpError("Could not find this route", 404);
   throw error;
 });
 
@@ -26,4 +26,12 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occured!" });
 });
 
-app.listen(5000); // start Node + Express server on port 5000
+mongoose
+  .connect('mongodb+srv://phongnv1:sVhHnVWZM2j9nAzi@cluster0-li83r.mongodb.net/places?retryWrites=true&w=majority')
+  .then(() => {
+    console.log('server started!');
+    app.listen(5000); // start Node + Express server on port 5000
+  })
+  .catch(error => {
+    console.log(error);
+  });
