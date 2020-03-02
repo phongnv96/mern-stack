@@ -12,8 +12,8 @@ class UserList extends Component {
              <UserItem
               key={item.id}
               name={item.name}
-              age={item.age}
-              url={item.url}
+              age={item.places.length}
+              url={item.image}
               to={item.id}
               alt={item.alt}
               id={item.id}

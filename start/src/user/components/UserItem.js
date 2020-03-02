@@ -14,7 +14,7 @@ class UserItem extends Component {
           </div>
           <div className="user-item__info">
             <h2>{this.props.name}</h2>
-            <h3>{this.props.age}</h3>
+            <h3>{this.props.age} Places</h3>
           </div>
           </Link>
         </Card>

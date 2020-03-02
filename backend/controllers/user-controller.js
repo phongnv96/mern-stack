@@ -1,11 +1,17 @@
 const HttpError = require("../models/http-error");
-const uuid = require("uuid");
 const { validationResult } = require("express-validator");
 const User = require("../models/user");
-const DUMMY_USER = [
-  { id: 1, email: "phongnv1", password: "123456" },
-  { id: 2, email: "phongnv3", password: "1234567" }
-];
+
+const getUsers = async (req, res, next) => {
+  let users;
+  try {
+    users = await User.find({}, '-password');
+  } catch(err) {
+    const error = new HttpError('Fetching users failed, please try again later.', 500);
+    return next(error);
+  }
+  res.json({users: users.map(user => user.toObject({getters: true}))});
+}
 
 const getUserById = (req, res, next) => {
   const userId = req.userId;
@@ -16,19 +22,23 @@ const getUserById = (req, res, next) => {
   res.status(200).json({ user: user });
 };
 
-const login = (req, res, next) => {
+const login = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     throw new HttpError("Invalid inputs passed, please check your data.", 422);
   }
   const { email, password } = req.body;
-  const user = DUMMY_USER.find(
-    u => u.email === email && u.password === password
-  );
-  if (!user) {
-    throw new HttpError("User not found!", 500);
+  let user;
+  try {
+    user = await User.findOne({email: email});
+  } catch (err) {
+    const error = new HttpError('Something worrong, please try again!', 500)
+    return next(error);
   }
-  res.status(200).json({ message: "Login success!" });
+  if (!user || user.password !== password) {
+    return next(new HttpError("User not found!", 500));
+  }
+  res.status(200).json({ message: "Login success!", user: user.toObject({getters: true}) });
 };
 
 const signUp = async (req, res, next) => {
@@ -68,3 +78,4 @@ const signUp = async (req, res, next) => {
 exports.getUserById = getUserById;
 exports.login = login;
 exports.signUp = signUp;
+exports.getUsers = getUsers;

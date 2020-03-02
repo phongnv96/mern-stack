@@ -12,43 +12,18 @@ import {
 import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
-// class App extends Component {
-//   // constructor(props) {
-//   //   super(props);
-//   //   this.state = {
-//   //     courseGoal: [
-//   //       { id: "1", lable: "hello baby" },
-//   //       { id: "2", lable: "hello baby 1" },
-//   //       { id: "3", lable: "hello baby 2" }
-//   //     ]
-//   //   };
-//   // }
-//   // addGoal = goal => {
-//   //   // courseGoal.push(goal);
-//   //   this.setState({
-//   //     courseGoal: this.state.courseGoal.concat(goal)
-//   //   })
-//   //   console.log(this.state.courseGoal);
-//   // };
-//   // render() {
-//   //   return (
-//   //     <div>
-//   //       <h1>A React App!</h1>
-//   //       <Form onAddGoal={this.addGoal} />
-//   //       <GoalList goals={this.state.courseGoal} />
-//   //     </div>
-//   //   );
-//   // }
-
-// }
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const login = useCallback(() => {
+  const [userId, setUserId] = useState(false);
+
+  const login = useCallback(uid => {
     setIsLoggedIn(true);
+    setUserId(uid);
   }, []);
   const logout = useCallback(() => {
     setIsLoggedIn(false);
+    setUserId(null);
   }, []);
   let routes;
   if (isLoggedIn) {
@@ -87,7 +62,12 @@ const App = () => {
   }
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+      value={{
+        isLoggedIn: isLoggedIn,
+        login: login,
+        logout: logout,
+        userId: userId
+      }}
     >
       <Router>
         <MainNavigation />

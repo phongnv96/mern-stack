@@ -20,7 +20,7 @@ class PlaceList extends Component {
           {this.props.items.map(place => (
             <PlaceItem
               key={place.id}
-              image={place.imageUrl}
+              image={place.image}
               title={place.title}
               description={place.description}
               address={place.address}

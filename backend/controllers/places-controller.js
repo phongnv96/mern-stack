@@ -1,24 +1,9 @@
 const HttpError = require("../models/http-error");
 const { validationResult } = require("express-validator");
 const  mongoose = require("mongoose");
-const uuid = require("uuid");
 const getCoordsForAddress = require("../util/location");
 const Place = require("../models/places");
 const User = require("../models/user");
-
-const DUMMY_PLACES = [
-  {
-    id: "p1",
-    title: "Empire State Building",
-    description: "One of the most famous sky scrapers in the world!",
-    location: {
-      lat: 40.7484474,
-      lng: -73.9871516
-    },
-    address: "20 W 34th St, New York, NY  10001",
-    creator: "u1"
-  }
-];
 
 /**
  * get place by id
@@ -53,9 +38,9 @@ const getPlacesById = async (rep, res, next) => {
  */
 const getPlaceByUserId = async (rep, res, next) => {
   const userId = rep.params.uid;
-  let places;
+  let userWithPlaces;
   try {
-    places = await Place.find({ creator: userId });
+    userWithPlaces = await User.findById(userId).populate('places');
   } catch (err) {
     const error = new HttpError(
       "Fetching places failed, please try again!",
@@ -63,12 +48,12 @@ const getPlaceByUserId = async (rep, res, next) => {
     );
     return next(error);
   }
-  if (!places || places.length === 0) {
+  if (!userWithPlaces || userWithPlaces.places.length === 0) {
     next(new HttpError("Could not find a place for the provided id.", 404));
   }
   res
     .status(200)
-    .json({ places: places.map(place => place.toObject({ getters: true })) });
+    .json({ places: userWithPlaces.places.map(place => place.toObject({ getters: true })) });
 };
 
 /**
@@ -178,7 +163,7 @@ const deletePlace = async (req, res, next) => {
   const placeId = req.params.pid;
   let place;
   try {
-    place = await  Place.findById(placeId).populated('creator');
+    place = await  Place.findById(placeId).populate('creator');
   } catch (err) {
     const error = new HttpError(
       "Something went wrong, Could not delete place. ",
