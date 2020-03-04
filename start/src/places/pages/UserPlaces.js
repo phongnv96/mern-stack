@@ -24,13 +24,17 @@ const UserPlaces = () => {
     fectchPlaces();
   }, [sendRequest, userId]);
 
+  const onDeleteHandler = (placeId) => {
+    setLoadedPlaces(places => places.filter(p => p.id !== placeId));
+  }
+
   return (
   <React.Fragment>
   <ErrorModal error={error} onClear={clearError}/>
   {isLoading && <div className="center">
       <LoadingSpinner asOverlay/>
     </div>}
-  {!isLoading  && <PlaceList items={loadedPlaces} />}
+  {!isLoading  && <PlaceList items={loadedPlaces} onDeletePlace={onDeleteHandler} />}
   </React.Fragment>
   );
 };

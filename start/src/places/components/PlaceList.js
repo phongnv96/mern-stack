@@ -27,6 +27,7 @@ class PlaceList extends Component {
               creatorId={place.creator}
               coordinates={place.location}
               id={place.id}
+              onDelete={this.props.onDeletePlace}
             />
           ))}
         </ul>

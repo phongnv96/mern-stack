@@ -21,11 +21,13 @@ const App = () => {
     setIsLoggedIn(true);
     setUserId(uid);
   }, []);
+
   const logout = useCallback(() => {
     setIsLoggedIn(false);
     setUserId(null);
   }, []);
   let routes;
+
   if (isLoggedIn) {
     routes = (
       <Switch>
@@ -60,6 +62,7 @@ const App = () => {
       </Switch>
     );
   }
+
   return (
     <AuthContext.Provider
       value={{
