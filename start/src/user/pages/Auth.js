@@ -5,6 +5,7 @@ import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import ImageUpload from "../../shared/components/UIElements/ImageUpload";
 import { useForm } from "../../shared/hooks/form-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -49,16 +50,15 @@ const Auth = props => {
       } catch (err) {}
     } else {
       try {
+        const formData = new FormData();
+        formData.append('name', formState.inputs.name.value);
+        formData.append('email', formState.inputs.email.value);
+        formData.append('password', formState.inputs.password.value);
+        formData.append('image', formState.inputs.image.value);
         await sendRequest(
           "http://localhost:5000/api/users/signup",
-          JSON.stringify({
-            name: formState.inputs.name.value,
-            email: formState.inputs.email.value,
-            password: formState.inputs.password.value
-          }),
-          {
-            "Content-Type": "application/json"
-          }
+          "POST",
+          formData
         );
         auth.login();
       } catch (err) {}
@@ -70,7 +70,8 @@ const Auth = props => {
       setFormData(
         {
           ...formState.inputs,
-          name: undefined
+          name: undefined,
+          image: undefined
         },
         formState.inputs.email.isValid && formState.inputs.password.isValid
       );
@@ -81,9 +82,14 @@ const Auth = props => {
           name: {
             value: "",
             isValid: false
+          },
+          image: {
+            value: null,
+            isValid: false
           }
         },
         false
+        
       );
     }
     setIsLogin(preMode => !preMode);
@@ -107,6 +113,9 @@ const Auth = props => {
               errorText="Please enter a Name"
               onInput={inputHandler}
             />
+          )}
+          {!isLogin && (
+            <ImageUpload id="image" onInput={inputHandler} center="true"/>
           )}
           <Input
             element="input"

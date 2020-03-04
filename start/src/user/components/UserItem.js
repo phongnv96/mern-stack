@@ -10,7 +10,7 @@ class UserItem extends Component {
         <Card className="user-item__content">
           <Link to={`/${this.props.id}/places`}>
           <div className="user-item__image">
-            <Avatar image={this.props.url} alt={this.props.alt} />
+            <Avatar image={`http://localhost:5000/${this.props.url}`} alt={this.props.alt} />
           </div>
           <div className="user-item__info">
             <h2>{this.props.name}</h2>
