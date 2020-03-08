@@ -1,0 +1,9 @@
+{
+    "env": {
+        "DB_USER":"phongnv1",
+        "DB_PASSWORD": "sVhHnVWZM2j9nAzi",
+        "DB_NAME": "places",
+        "GOOGLE_API": "AIzaSyDIPTZ7dpn5_hralWGDP4glqkqAaac6qeA",
+        "JWT_KEY": "suppersecret"
+    }
+}

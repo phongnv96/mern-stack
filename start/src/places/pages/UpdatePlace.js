@@ -12,7 +12,7 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import "./PlaceForm.css";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import {AuthContext} from "../../shared/context/auth-context";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const UpdatePlace = props => {
   const placeId = useParams().placeId;
@@ -35,7 +35,7 @@ const UpdatePlace = props => {
     const getPlaceById = async () => {
       try {
         const responeData = await sendRequest(
-          `http://localhost:5000/api/places/${placeId}`,
+          process.env.REACT_APP_BACKEND_URL + `/places/${placeId}`,
           "GET"
         );
         setPlaceIdentify(responeData.place);
@@ -63,7 +63,7 @@ const UpdatePlace = props => {
     event.preventDefault();
     try {
       await sendRequest(
-        `http://localhost:5000/api/places/update/${placeId}`,
+        process.env.REACT_APP_BACKEND_URL + `/places/update/${placeId}`,
         "PATCH",
         JSON.stringify({
           title: formState.inputs.title.value,
@@ -71,7 +71,7 @@ const UpdatePlace = props => {
         }),
         { "Content-Type": "application/json" }
       );
-      history.push(`/${auth.userId}/places`)
+      history.push(`/${auth.userId}/places`);
     } catch (error) {}
   };
 

@@ -49,9 +49,11 @@ const NewPlace = props => {
     formData.append("image", formState.inputs.image.value);
     try {
       await sendRequest(
-        "http://localhost:5000/api/places/add",
+        process.env.REACT_APP_BACKEND_URL + "/places/add",
         "POST",
-        formData
+        formData, {
+          Authorization: 'Bearer ' + auth.token
+        }
       );
       history.push("/");
     } catch (err) {}
