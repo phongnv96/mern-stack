@@ -1,0 +1,27 @@
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 350;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 1px 5px rgba(190,190,190,.5);
+    -webkit-transition: transform .25s ease,opacity .1s ease,visibility .1s ease;
+    transition: transform .25s ease,opacity .1s ease,visibility .1s ease;
+    background-color: #fff;
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+}
+.act-scroll {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+.header-clone {
+    background-color: #ffffff;
+}
+.color-scheme-dark {
+    color: rgba(0,0,0,.7);
+}

@@ -49,7 +49,7 @@ mongoose
   )
   .then(() => {
     console.log("server started!");
-    app.listen(5000); // start Node + Express server on port 5000
+    app.listen(process.env.PORT || 5000); // start Node + Express server on port 5000
   })
   .catch(error => {
     console.log(error);

@@ -55,12 +55,12 @@ const Auth = props => {
         formData.append('email', formState.inputs.email.value);
         formData.append('password', formState.inputs.password.value);
         formData.append('image', formState.inputs.image.value);
-        await sendRequest(
+        const responseData = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + "/users/signup",
           "POST",
           formData
         );
-        auth.login();
+        auth.login(responseData.user.id, responseData.token);
       } catch (err) {}
     }
   };
