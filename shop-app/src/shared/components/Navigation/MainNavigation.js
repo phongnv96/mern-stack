@@ -42,7 +42,7 @@ const MainNavigation = props => {
                 <a href={items.url} target="_self">
                   {items.title}
                 </a>
-                {items.subItems.length && <MenuNavigation />}
+                {items.subItems.length > 0 && <MenuNavigation />}
               </li>
             ))}
           </ul>
