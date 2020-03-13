@@ -1,20 +1,30 @@
 import React from "react";
+import MenuItem from './MenuItem';
 import "./MenuNavigation.css";
 const DUMMY_MENU_ITEMS = [
   {
     url:
       "https://demo-basel.myshopify.com/blogs/hobbies/?preview_theme_id=179095442",
-    title: "Blog Default"
+    title: "Blog Default",
+    subItems: [],
+    menuLable: '',
+    isMainMenu: false
   },
   {
     url:
       "https://demo-basel.myshopify.com/blogs/hobbies/?preview_theme_id=179095442",
-    title: "Alternative Style"
+    title: "Alternative Style",
+    subItems: [],
+    menuLable:'',
+    isMainMenu: false
   },
   {
     url:
       "https://demo-basel.myshopify.com/blogs/hobbies/?preview_theme_id=179095442",
-    title: "Blog Full Width"
+    title: "Blog Full Width",
+    subItems: [],
+    menuLable: '',
+    isMainMenu: false
   }
 ];
 
@@ -22,11 +32,15 @@ const MenuNavigation = props => {
   return (
     <div className="sub-menu-dropdown">
       <div className="container">
-        <ul class="sub-menu color-scheme-dark">
-          {DUMMY_MENU_ITEMS.map(menuItem => (
-            <li>
-              <a href={menuItem.url}>{menuItem.title}</a>
-            </li>
+        <ul className="sub-menu color-scheme-dark">
+          {DUMMY_MENU_ITEMS.map((menuItem, index) => (
+            <MenuItem
+              url={menuItem.url}
+              title={menuItem.title}
+              subItems={menuItem.subItems}
+              menuLable={menuItem.menuLable}
+              key={index}
+            />
           ))}
         </ul>
       </div>

@@ -1,17 +1,21 @@
 import React from "react";
 import MainHeader from "./MainHeader";
-import MenuNavigation from "../Navigation/MenuNavigations/MenuNavigation";
+import MenuItem from "./MenuNavigations/MenuItem";
 import "./MainNavigation.css";
 const DUMMY_PARENT_ITEM = [
   {
     url: "/",
     title: "Home",
-    subItems: [1, 2, 3]
+    subItems: [1, 2, 3],
+    isMainMenu: true,
+    menuLable: 'sale',
   },
   {
     url: "/",
     title: "Shop",
-    subItems: []
+    subItems: [],
+    isMainMenu: true,
+    menuLable: '',
   }
 ];
 const MainNavigation = props => {
@@ -28,22 +32,22 @@ const MainNavigation = props => {
               <img
                 itemProp="logo"
                 src="//cdn.shopify.com/s/files/1/1933/6253/files/logo-basel.svg"
+                alt='hello'
               />
             </a>
           </h1>
         </div>
         <div className="main-nav">
           <ul>
-            {DUMMY_PARENT_ITEM.map(items => (
-              <li
-                className={`menu-item ${items.subItems.length &&
-                  "menu-item-has-children"}`}
-              >
-                <a href={items.url} target="_self">
-                  {items.title}
-                </a>
-                {items.subItems.length > 0 && <MenuNavigation />}
-              </li>
+            {DUMMY_PARENT_ITEM.map((items,index) => (
+              <MenuItem
+                url={items.url}
+                title={items.title}
+                subItems={items.subItems}
+                isMainMenu={items.isMainMenu}
+                menuLable={items.menuLable}
+                key={index}
+              />
             ))}
           </ul>
         </div>
