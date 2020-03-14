@@ -7,7 +7,7 @@ const DUMMY_MENU_ITEMS = [
       "https://demo-basel.myshopify.com/blogs/hobbies/?preview_theme_id=179095442",
     title: "Blog Default",
     subItems: [],
-    menuLable: '',
+    menuLable: 'new',
     isMainMenu: false
   },
   {
@@ -15,7 +15,7 @@ const DUMMY_MENU_ITEMS = [
       "https://demo-basel.myshopify.com/blogs/hobbies/?preview_theme_id=179095442",
     title: "Alternative Style",
     subItems: [],
-    menuLable:'',
+    menuLable:'hot',
     isMainMenu: false
   },
   {
@@ -40,6 +40,7 @@ const MenuNavigation = props => {
               subItems={menuItem.subItems}
               menuLable={menuItem.menuLable}
               key={index}
+              isMainMenu={menuItem.isMainMenu}
             />
           ))}
         </ul>

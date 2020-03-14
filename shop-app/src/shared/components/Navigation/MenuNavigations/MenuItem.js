@@ -4,8 +4,8 @@ import MenuLable from "../../UIElements/MenuLable/MenuLable";
 import './MenuItem.css';
 const MenuItem = props => {
     return (
-        <li className={`${props.isMainMenu && 'menu-item'} ${props.subItems.length &&
-                "menu-item-has-children"}`}>
+        <li className={`${props.isMainMenu ? 'menu-item ' : ''}${props.subItems.length ?
+                "menu-item-has-children" : ''}`}>
             <a href={props.url} target="_self">
                 {props.title}
                 {props.menuLable && <MenuLable typeLable={props.menuLable}/>}

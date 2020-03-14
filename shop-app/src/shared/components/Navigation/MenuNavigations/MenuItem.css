@@ -31,3 +31,7 @@ li.menu-item-has-children > a:after {
   line-height: 14px;
   font-weight: 400;
 }
+.menu-item-has-children:hover .sub-menu-dropdown {
+    visibility: visible;
+    opacity: 1;
+}
