@@ -10,7 +10,7 @@ const MenuItem = props => {
                 {props.title}
                 {props.menuLable && <MenuLable typeLable={props.menuLable}/>}
             </a>
-            {props.subItems.length > 0 && <MenuNavigation />}
+            {props.subItems.length > 0 && <MenuNavigation subItems={props.subItems} />}
         </li>
     );
 }

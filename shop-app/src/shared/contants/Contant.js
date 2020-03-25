@@ -1,0 +1,1 @@
+export const URL_LOGO_IMG = '//cdn.shopify.com/s/files/1/1933/6253/files/logo-basel.svg';
