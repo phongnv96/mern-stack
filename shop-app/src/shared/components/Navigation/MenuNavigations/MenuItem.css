@@ -19,6 +19,9 @@ li.menu-item {
   text-decoration: none;
   letter-spacing: 0.5px;
 }
+.menu-item a:hover {
+  color: #1aada3;;
+}
 li.menu-item-has-children > a:after {
   content: "\f107";
   right: 1px;

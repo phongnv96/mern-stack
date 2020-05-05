@@ -1,0 +1,83 @@
+.footer-container {
+  background-color: black;
+  margin: auto;
+}
+.color-scheme-light {
+  color: white;
+}
+.txt-footer {
+  text-align: center;
+  margin-bottom: 0px;
+}
+.footer-img {
+  max-width: 300px;
+}
+.footer-container {
+    padding: 30px 0px;
+}
+.footer-container .textwidget ul {
+  list-style: none;
+  line-height: 1;
+  padding: 0;
+}
+/* .footer-container.color-scheme-light ul li {
+  
+} */
+.footer-inside {
+  margin-left: 6%;
+  margin-right: 6%;
+}
+.social-icons li {
+  display: inline-block;
+  margin: 5px 5px 0 5px;
+  padding: 0;
+}
+.footer-container.color-scheme-light .textwidget ul li .fa {
+    color: rgba(255, 255, 255, 0.6); 
+}
+
+.footer-container.color-scheme-light .textwidget ul li .fa:hover {
+   color: white;
+}
+.textwidget {
+    margin: 20px 0px;
+    text-align: left;
+}
+.widget-title {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: white;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 4px;
+  text-align: left;
+}
+.widget-title:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: rgba(255,255,255,.8);
+}
+.footer-container .menu li a {
+  color: rgba(255,255,255,.8);
+  font-size: 13px;
+}
+.footer-container .menu li {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.footer-link {
+  margin-top: 20px;
+}
+.footer-about-store {
+  line-height: 2;
+  font-size: 13px;
+}
+.footer-about-store .fa {
+  width: 15px; text-align: center; margin-right: 4px; color: #676767;
+}

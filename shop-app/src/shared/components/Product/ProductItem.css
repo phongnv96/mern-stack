@@ -1,0 +1,78 @@
+.product-card-item:hover .p-btn-handdler {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.product-btn {
+  position: absolute;
+  top: 5%;
+  right: 6%;
+}
+.p-btn-item {
+  width: 35px;
+  height: 35px;
+  color: black;
+}
+.p-btn-handdler {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transition: all 0.25s ease-in-out;
+}
+.product-selected {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 2rem;
+  overflow: hidden;
+}
+.product-footer {
+  font-size: 14px;
+}
+.product-name {
+  font-style: underline;
+}
+.product-price {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: all 0.25s ease-in-out;
+}
+.product-card-item:hover .product-price {
+  top: -2rem;
+}
+.product-add-cart {
+  font-size: 13px;
+  font-weight: 600;
+  position: absolute;
+  top: 2rem;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+.product-card-item:hover .product-add-cart {
+  top: 0;
+}
+.p-btn-select-color {
+  margin-left: 0.5rem;
+  position: relative;
+}
+.p-btn-select-color::after {
+  content: '';
+  background-color: inherit;
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50%;
+  right: -1px;
+  position: absolute;
+  cursor: pointer;
+}
+.p-btn-select-color:checked::before {
+    content: "";
+    width: 15px;
+    height: 4px;
+    background-color: #19ada3;
+    position: absolute;
+    bottom: -8px;
+    left: -2px;
+}

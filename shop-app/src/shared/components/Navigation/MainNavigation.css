@@ -1,7 +1,7 @@
 .site-logo {
   display: table-cell;
   vertical-align: middle;
-  width: 20%;
+  width: 15%;
 }
 
 .sticky-header .site-logo img {
@@ -147,23 +147,18 @@ h1 {
   background: black;
 }
 
-.main-navigation_drawer-nav {
-
-}
-
 /* side navigation */
 @media (min-width: 768px) {
   .main-navigation__menu-btn {
     display: none;
   }
-
-  .main-navigation__header-nav {
-    display: block;
-  }
 }
 
 @media (max-width: 768px) {
-  .main-navigation_drawer-nav-inline {
+  .main-nav {
     display: none;
+  }
+  .site-logo {
+    padding-left: 8%;
   }
 }

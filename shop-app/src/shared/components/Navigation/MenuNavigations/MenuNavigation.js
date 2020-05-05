@@ -4,9 +4,9 @@ import NavLinks from "../NavLinks/NavLinks";
 
 const MenuNavigation = props => {
   return (
-    <div className="sub-menu-dropdown">
+     <div className={`sub-menu-dropdown ${props.typeSubItem === '2' ? "sub-item-design" : ''}`}>
       <div className="container">
-        <NavLinks items={props.subItems} classNames="sub-menu color-scheme-dark" />
+      <NavLinks typeSubItem={props.typeSubItem} items={props.subItems} classNames="sub-menu color-scheme-dark" />
       </div>
     </div>
   );

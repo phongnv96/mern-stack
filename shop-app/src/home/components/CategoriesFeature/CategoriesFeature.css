@@ -1,0 +1,50 @@
+.categories-feature {
+  padding: 20px;
+  justify-content: center;
+}
+
+.categories-feature .cus-card img {
+  max-height: 560px;
+}
+.categories-feature-footer {
+  margin-bottom: 0;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  background-color: #0a0a0a;
+  margin: 20px 40px 0px 40px;
+}
+.cate-txt-footer {
+  text-align: center;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  color: white;
+}
+.cate-txt-footer-link {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* .categories-section {
+
+} */
+.categories-item {
+  background: rgb(249, 249, 249);
+  /* height: 8rem; */
+  border-radius: 1.5rem;
+  padding: 1.3rem;
+  flex-direction: column;
+}
+.categories-icon {
+  padding: 0.5rem;
+}
+.categories-icon .fa {
+  font-size: 1.7rem !important;
+  color: #19ada3;
+}
+.categories-title {
+  padding: 0.5rem;
+  font-size: 12px;
+}

@@ -2,7 +2,7 @@
   position: absolute;
   left: 0;
   top: 100%;
-  width: 180px;
+  width: 220px;
   padding-top: 12px;
   padding-bottom: 12px;
   z-index: 300;
@@ -14,7 +14,6 @@
   background-repeat: no-repeat;
   background-clip: border-box;
   background-color: #fff;
-
 }
 .sub-menu-dropdown .container {
   width: auto;
@@ -31,7 +30,6 @@
   font-weight: 400;
   letter-spacing: 0.3px;
   text-decoration: none;
-  text-transform: uppercase;
   transition: 0.2s ease-in-out;
   padding: 11px 15px;
   position: relative;
@@ -39,7 +37,21 @@
 .sub-menu-dropdown ul {
   padding: 0;
 }
-.sub-menu-dropdown ul li:hover > a {
+.sub-menu-dropdown ul li.child-menu:hover > a {
   color: #1aada3;
   margin-left: 5px;
+}
+
+/* sub item desgin */
+.sub-item-design {
+ width: 600px !important;
+ background-image: url(//cdn.shopify.com/s/files/1/1933/6253/files/menu-baner-1_2e159f06-6333-429a-b3c0-5708c01cd811_246x.progressive.jpg);
+ background-size: contain;
+}
+
+.sub-item-design  .sub-menu>li {
+  float: left;
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }

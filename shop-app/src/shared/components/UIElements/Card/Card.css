@@ -1,0 +1,22 @@
+.cus-card {
+    padding: 10px;
+    position: relative;
+}
+.cus-card img {
+    width: 100%;
+    height: auto;
+}
+.row {
+    margin: 0px;
+}
+.cus-card-body {
+    overflow: hidden;
+    border-radius: 6% ;
+}
+.cus-card-body img {
+    transition: transform 0.7s ease-in-out;
+}
+.cus-card-body:hover img {
+    transform: scale(1.1);
+    
+}

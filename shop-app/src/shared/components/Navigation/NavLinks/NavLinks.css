@@ -1,0 +1,40 @@
+.side-bar-menu li{
+    display: block;
+    padding: 0px 20px;
+}
+.side-bar-menu li:hover{
+    background-color: #1aada3;
+}
+.side-bar-menu li:hover.menu-item a {
+    color: white;
+}
+
+.side-bar-menu li:hover.menu-item .sub-menu li a{
+    color: black;
+}
+
+.side-bar-menu li:hover.menu-item .sub-menu li:hover{
+    background-color: #e6e6e6;;
+}
+
+.side-bar-menu {
+    margin-top: 10%;
+    padding: 0px;
+}
+.side-bar-menu li a {
+    position: relative;
+}
+.side-bar-menu .menu-item {
+    margin: 0px;
+}
+.side-bar-menu .sub-menu-dropdown {
+    width: 100%;
+    padding: 0px;
+}
+.menu-item-page {
+    text-transform: uppercase;
+    font-weight: 600!important;
+}
+.menu-item-page:hover {
+    color: #1aada3;
+}

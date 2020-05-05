@@ -1,0 +1,6 @@
+.new-section-type-row {
+    flex-direction: row !important;
+}
+.new-section-type-colum {
+    flex-direction: column;
+}
