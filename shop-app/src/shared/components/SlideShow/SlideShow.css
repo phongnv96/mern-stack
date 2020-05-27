@@ -2,8 +2,39 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 600px;
+  /* height: 600px; */
 }
 .slide-show {
   margin-top: 10%;
+}
+.slide-container{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 6000px;
+  transition: all 300ms;
+}
+.slide-detail{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.slide-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+.arrow-icon {
+  width: 30px;
+  height: 30px;
+}
+.slide-btn-move {
+  position: absolute;
+  top: 50%;
+}
+.arrow-left{
+  right: 10%;
+}
+.arrow-right{
+  left: 10%;
 }

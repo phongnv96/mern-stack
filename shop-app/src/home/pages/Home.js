@@ -13,7 +13,7 @@ import NewSection from '../components/NewSection/NewSection';
 const Home = props => {
     return (
         <>
-        <SlideShow/>
+        <SlideShow height={'auto'} width={'100vw'} />
         <div className="home-container">
         <TitleDivideSection subDescription/>
         <CategoriesFeature/>
